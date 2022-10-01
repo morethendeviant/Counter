@@ -7,17 +7,14 @@
 
 import Foundation
 
+struct Counter {
+    let name: String
+    var count: Int
+}
 
-class CounterMockData {
+class CounterModel {
     
-    struct Counter {
-        let name: String
-        var count: Int
-    }
-    
-    var counters: [Counter] = [Counter(name: "Birds", count: 4),
-                               Counter(name: "Flowers", count: 11),
-                               Counter(name: "Cats", count: 2)]
+    var counters: [Counter] = CountersMockData.counters
     
     func createCounter(name: String) {
         counters.append(Counter(name: name, count: 0))
@@ -32,4 +29,11 @@ class CounterMockData {
             counters.remove(at: index)            
         }
     }
+}
+
+
+struct CountersMockData {
+    static let counters: [Counter] = [Counter(name: "Birds", count: 4),
+                                      Counter(name: "Flowers", count: 11),
+                                      Counter(name: "Cats", count: 2)]
 }

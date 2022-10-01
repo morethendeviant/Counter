@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewController: UITableViewController, CounterDelegate {
     
-    var countersData = CounterMockData()
+    var countersData = CounterModel()
     var counterIndex: Int?
     
     func updateCounter() {
@@ -18,11 +18,26 @@ class TableViewController: UITableViewController, CounterDelegate {
     
     func createCounter(name: String) {
         countersData.createCounter(name: name)
-        tableView.reloadData()
     }
     
     @objc func addCounter() {
-        performSegue(withIdentifier: "CreateCounterSegue", sender: nil)
+        let alert = UIAlertController(title: "Добавить счетчик", message: nil, preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Название счетчика"
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            if action.style == .default, let text = alert.textFields!.first!.text, !text.isEmpty {
+                self.createCounter(name: text)
+                self.tableView.reloadData()
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -42,8 +57,9 @@ class TableViewController: UITableViewController, CounterDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "counterCell", for: indexPath)
-        cell.textLabel?.text = countersData.counters[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "counterCell", for: indexPath) as! TableViewCell
+        cell.counterNameLabel.text = countersData.counters[indexPath.row].name
+        cell.counterCountLabel.text = String(countersData.counters[indexPath.row].count)
         return cell
     }
     
@@ -58,14 +74,12 @@ class TableViewController: UITableViewController, CounterDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let counterViewController = segue.destination as? CounterViewController {
-            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+            if let cell = sender as? TableViewCell, let indexPath = tableView.indexPath(for: cell) {
                 counterViewController.counterName = countersData.counters[indexPath.row].name
                 counterViewController.count = countersData.counters[indexPath.row].count
                 counterIndex = indexPath.row
                 counterViewController.counterDelegate = self
             }
-        } else if let createCounterViewController = segue.destination as? CreateCounterViewController {
-            createCounterViewController.counterDelegate = self
         }
     }
 }

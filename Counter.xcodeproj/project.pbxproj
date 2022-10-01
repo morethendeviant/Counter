@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		785313B728E7604E00616271 /* CreateCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785313B628E7604E00616271 /* CreateCounterViewController.swift */; };
 		785313B928E7705600616271 /* CounterDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785313B828E7705600616271 /* CounterDelegateProtocol.swift */; };
+		785313BD28E7757900616271 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785313BC28E7757900616271 /* TableViewCell.swift */; };
 		788527E128E6336F009920CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788527E028E6336F009920CB /* AppDelegate.swift */; };
 		788527E328E6336F009920CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788527E228E6336F009920CB /* SceneDelegate.swift */; };
 		788527E528E6336F009920CB /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788527E428E6336F009920CB /* CounterViewController.swift */; };
@@ -20,8 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		785313B628E7604E00616271 /* CreateCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCounterViewController.swift; sourceTree = "<group>"; };
 		785313B828E7705600616271 /* CounterDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterDelegateProtocol.swift; sourceTree = "<group>"; };
+		785313BC28E7757900616271 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		788527DD28E6336F009920CB /* Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Counter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		788527E028E6336F009920CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		788527E228E6336F009920CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,8 +67,8 @@
 				788527E028E6336F009920CB /* AppDelegate.swift */,
 				788527E228E6336F009920CB /* SceneDelegate.swift */,
 				788527F628E73C7F009920CB /* TableViewController.swift */,
+				785313BC28E7757900616271 /* TableViewCell.swift */,
 				788527E428E6336F009920CB /* CounterViewController.swift */,
-				785313B628E7604E00616271 /* CreateCounterViewController.swift */,
 				785313B828E7705600616271 /* CounterDelegateProtocol.swift */,
 				788527F828E741BD009920CB /* Model.swift */,
 				788527E628E6336F009920CB /* Main.storyboard */,
@@ -151,11 +151,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				788527F928E741BD009920CB /* Model.swift in Sources */,
+				785313BD28E7757900616271 /* TableViewCell.swift in Sources */,
 				788527E528E6336F009920CB /* CounterViewController.swift in Sources */,
 				785313B928E7705600616271 /* CounterDelegateProtocol.swift in Sources */,
 				788527E128E6336F009920CB /* AppDelegate.swift in Sources */,
 				788527E328E6336F009920CB /* SceneDelegate.swift in Sources */,
-				785313B728E7604E00616271 /* CreateCounterViewController.swift in Sources */,
 				788527F728E73C7F009920CB /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
