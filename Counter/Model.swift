@@ -13,8 +13,7 @@ struct Counter {
 }
 
 class CounterModel {
-    
-    var counters: [Counter] = CountersMockData.counters
+    private(set) var counters: [Counter] = CountersMockData.counters
     
     func createCounter(name: String) {
         counters.append(Counter(name: name, count: 0))
